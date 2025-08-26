@@ -11,23 +11,25 @@
     <div>
         <h2>도서 등록</h2>
 
-        <label for="title">제목:</label>
-        <input type="text" name="title" id="title" required>
+         <form>
+            <label for="title">제목:</label>
+            <input type="text" name="title" id="title" required>
 
-        <label for="author">저자:</label>
-        <input type="text" name="author" id="author" required>
+            <label for="author">저자:</label>
+            <input type="text" name="author" id="author" required>
 
-        <label for="isbn">ISBN:</label>
-        <input type="text" name="isbn" id="isbn"
-            placeholder="0000000000000" pattern="^(978|979)\d{10}$" required>
+            <label for="isbn">ISBN:</label>
+            <input type="text" name="isbn" id="isbn"
+                placeholder="0000000000000" pattern="^(978|979)\d{10}$" required>
 
-        <label for="price">가격:</label>
-        <input type="text" name="price" id="price" placeholder="0" pattern="^\d+$" required>
+            <label for="price">가격:</label>
+            <input type="text" name="price" id="price" placeholder="0" pattern="^\d+$" required>
 
-        <label for="publishDate">출판일:</label>
-        <input type="date" name="publishDate" id="publishDate">
+            <label for="publishDate">출판일:</label>
+            <input type="date" name="publishDate" id="publishDate">
 
-        <button type="submit">도서 등록</button>
+            <button type="submit">도서 등록</button>
+        </form>
     </div>
     <div>
         <h2>도서 리스트</h2>
