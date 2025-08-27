@@ -56,7 +56,13 @@
             <input type="date" name="dateOfBirth" id="dateOfBirth" />
           </div>
           
-          <button type="submit">학생 등록</button>
+          <div class="button-group">
+            <button type="submit">학생 등록</button>
+            <button type="button" class="cancel-btn" onclick="resetForm()" style="display: none">
+              취소
+            </button>
+            <span class="error-message" id="formError"></span>
+          </div>
         </div>
       </form>
     </div>
@@ -75,9 +81,11 @@
                     <th>액션</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody id="studentTableBody"></tbody>
         </table>
     </div>
+
+    <script src="./js/form.js"></script>
 </body>
 
 </html>
