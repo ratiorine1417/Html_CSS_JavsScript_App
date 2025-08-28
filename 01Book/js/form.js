@@ -128,8 +128,8 @@ function renderBookTable(books) {
                     <td>${book.price}</td>
                     <td>${formatDate(book.publishDate)}</td>
                     <td>
-                        <button class="edit-btn" onclick="editBook(${book.isbn})">수정</button>
-                        <button class="delete-btn" onclick="deleteBook(${book.isbn},'${book.title}')">삭제</button>
+                        <button class="edit-btn" onclick="editBook(${book.id})">수정</button>
+                        <button class="delete-btn" onclick="deleteBook(${book.id}, '${book.isbn}')">삭제</button>
                     </td>
                 `;
         bookTableBody.appendChild(row);
@@ -185,14 +185,14 @@ function createBook(bookData) {
         });
 }//createBook
 
-function deleteBook(bookId) {
-    if (!confirm(`ISBN = ${bookId} 도서를 정말로 삭제하시겠습니까?`)) {
+function deleteBook(bookId, bookIsbn) {
+    if (!confirm(`ISBN = ${bookIsbn} 도서를 정말로 삭제하시겠습니까?`)) {
         return;
     }
 
     console.log('삭제 처리 중...');
 
-    fetch(`${API_BASE_URL}/api/books/isbn/${bookId}`, {
+    fetch(`${API_BASE_URL}/api/books/${bookId}`, {
         method: 'DELETE'
     })
         .then(function (response) {
@@ -206,7 +206,7 @@ function deleteBook(bookId) {
                 });
             }
             showMessage("도서가 성공적으로 삭제되었습니다!", "success");
-            loadStudents();
+            loadBooks();
         })
         .catch(function (error) {
             console.log('Error : ', error);
@@ -215,7 +215,7 @@ function deleteBook(bookId) {
 }//deleteBook
 
 function editBook(bookId) {
-    fetch(`${API_BASE_URL}/api/books/isbn/${bookId}`)
+    fetch(`${API_BASE_URL}/api/books/${bookId}`)
         .then(function (response) {
             if (!response.ok) {
                 return response.json().then(function (errorData) {
@@ -249,7 +249,7 @@ function updateBook(bookId, bookData) {
     submitButton.disabled = true;
     submitButton.textContent = "수정 중...";
 
-    fetch(`${API_BASE_URL}/api/books/isbn/${bookId}`, {
+    fetch(`${API_BASE_URL}/api/books/${bookId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookData)
@@ -278,7 +278,7 @@ function updateBook(bookId, bookData) {
         .finally(function () {
             // 버튼 다시 활성화
             submitButton.disabled = false;
-            if (editingStudentId) {
+            if (editingBookId) {
                 submitButton.textContent = "학생 수정";
             } else {
                 submitButton.textContent = "학생 등록";

@@ -98,6 +98,7 @@ function deleteStudent(studentId, studentName) {
     }
 
     console.log('삭제 처리 중...');
+    console.log(studentId);
 
     fetch(`${API_BASE_URL}/api/students/${studentId}`, {
         method: 'DELETE'
