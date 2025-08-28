@@ -121,3 +121,47 @@ tr:hover {
     justify-content: center;
     align-items: center;
 }
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: none;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+    margin-left: 15px;
+}
+
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.edit-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #218838;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
