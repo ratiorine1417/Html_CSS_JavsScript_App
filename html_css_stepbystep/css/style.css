@@ -1,24 +1,83 @@
-﻿body {
-    font-family: "맑은 고딕", "돋움", "굴림";               
-    /*
-    background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment
-       bg-images : url('../images/bg.jpg') 
-       bg-repeat : no-repeat : 
-       bg-position (배경 위치) : left(가로위치-왼쪽) top(세로위치-상단) : 
-       bg-attachment (배경 고정) : fixed 페이지를 스크롤해도 배경은 움직이지 않음
-    */
-    
-    /*
-    background-size
-    : cover
-        비율 유지하며 요소 전체를 덮음
-        이미지 일부가 잘릴 수 있음
-        풀스크린 배경에 최적
-    : contain
-        비율 유지하며 요소 안에 완전 포함
-        여백이 생길 수 있음
-        로고, 아이콘에 최적
-    */
-    
+﻿/* background image에 images\bg.jpg 사용 */
+body {
+    background: url('../images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    width: 75vw;
+    margin: 0 auto;
+}
+#wrapper {
+    margin: 0 auto;
+}
+nav {
+    display: block;
+    /* background-color: linear-gradient(to bottom, black, black);
+    background-size: 100% calc(100% - 5px); */
+}
+article {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+}
+nav ul {
+    display: flex; 
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+nav a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+}
+nav a.current {
+    color: black;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+nav a:hover {
+    color: black;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+/* 선택 */
+section {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-sizing: border-box;
+    border: 3px solid black;
+}
+footer {
+    background-color: grey;
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    /* text-align: center; */
+    color: white;
+    padding: 10px;
+}
+/* images\icon.png 사용 */
+h2 {
+    background: url('../images/icon.png') no-repeat left center;
+    background-size: 35px;
+    height: max-content;
+    padding-left: 35px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
